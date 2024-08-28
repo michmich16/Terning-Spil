@@ -4,7 +4,7 @@ import Dice from '../../components/Dice/Dice';
 const RollDiceTest = () => {
     const [dice1, setDice1] = useState(1);
     const [dice2, setDice2] = useState(1);
-    const [total, setTotal] = useState(2);
+    const [total, setTotal] = useState(2);  // Set til 2 total (mindste tal man kan få)
     const [message, setMessage] = useState('');
 
     const rollDice = () => {
@@ -15,32 +15,32 @@ const RollDiceTest = () => {
         return newDice1 + newDice2;  
     };
 
-    function higherBtn() {
+    const higherBtn = () => {
         const newTotal = rollDice();
         console.log('higher clicked', newTotal);
 
-        if (newTotal > 6) {
-            setMessage('You win! The total is higher than 6.');
+        if (newTotal > total) {
+            setMessage(`You win! The total ${newTotal} is higher than the previous total ${total}.`);
+        } else if (newTotal === total) {
+            setMessage('It\'s a tie! The total is the same as the previous roll.');
         } else {
-            setMessage('You lose! The total is not higher than 6.');
+            setMessage(`You lose! The total ${newTotal} is not higher than the previous total ${total}.`);
         }
-        setTotal(newTotal);
-        
+        setTotal(newTotal);  // Opdaterer total til nye value
     };
 
-    // rollDice Function: Now returns the sum of the dice after setting them.
-// higherBtn and lowerBtn Functions: Use the total calculated after calling rollDice() rather than the stale state values.
-
-    function lowerBtn() {
+    const lowerBtn = () => {
         const newTotal = rollDice();
         console.log('lower clicked', newTotal);
 
-        if (newTotal < 6) {
-            setMessage('You win! The total is lower than 6.');
+        if (newTotal < total) {
+            setMessage(`You win! The total ${newTotal} is lower than the previous total ${total}.`);
+        } else if (newTotal === total) {
+            setMessage('It\'s a tie! The total is the same as the previous roll.');
         } else {
-            setMessage('You lose! The total is not lower than 6.');
+            setMessage(`You lose! The total ${newTotal} is not lower than the previous total ${total}.`);
         }
-        setTotal(newTotal);
+        setTotal(newTotal);  // Opdaterer total til nye value
     };
 
     return (
@@ -60,7 +60,7 @@ const RollDiceTest = () => {
                 Higher
             </button>
             <h2>Total: {total}</h2>
-            <h2>{message}</h2>
+            <h2>{message}</h2> 
         </div>
     );
 };
