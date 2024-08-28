@@ -51,13 +51,13 @@ const RollDiceTest = () => {
                 <Dice number={dice1} />
                 <Dice number={dice2} />
             </div>
-            <button onClick={lowerBtn} style={{ padding: '10px 20px', fontSize: '16px', marginRight: '10px', color: 'white', background: 'red', borderRadius: '10px', cursor: 'pointer', border: 'none' }}>
+            <button className={s.lowerButtonStyle} onClick={lowerBtn} >
                 Lower
             </button>
-            <button onClick={() => setTotal(rollDice())} style={{ padding: '10px 20px', fontSize: '16px' , color: 'white', background: 'black', borderRadius: '10px', cursor: 'pointer', border: 'none' }}>
+            <button className={s.rollButtonStyle} onClick={() => setTotal(rollDice())} >
                 Roll Dice
             </button>
-            <button onClick={higherBtn} style={{ padding: '10px 20px', fontSize: '16px', marginLeft: '10px', color: 'white', background: 'green', borderRadius: '10px', cursor: 'pointer', border: 'none'}}>
+            <button className={s.higherButtonStyle} onClick={higherBtn} >
                 Higher
             </button>
             <h2 className={s.totalStyle}>Total: {total}</h2>

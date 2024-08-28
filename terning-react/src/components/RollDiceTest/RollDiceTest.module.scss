@@ -22,3 +22,33 @@ body{
      }
 }
 
+.higherButtonStyle{
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: 10px; 
+    color: white;
+    background: green; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    border: none;
+}
+
+.rollButtonStyle{
+    padding: 10px 20px;
+    font-size: 16px; 
+    color: white;
+    background: black; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    border: none;
+} 
+.lowerButtonStyle{
+    padding: 10px 20px;
+    font-size: 16px; 
+    margin-right: 10px ;
+    color: white;
+    background: red; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    border: none;
+}
