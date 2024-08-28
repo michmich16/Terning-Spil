@@ -1,10 +1,24 @@
-.Container {
-   background: grey;
- 
-    button {
-        &:hover {
-           opacity: 50%;
-        }
-    }
-       
+body{
+    background-image: url('../../assets/images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    .Container {
+        background: rgba(128, 128, 128, 0.588);
+        max-width: 30vw;
+        margin: auto;
+        margin-top: 5rem;
+        border-radius: 8px;
+        padding: 1rem;
+      
+         button {
+             &:hover {
+                box-shadow: 2px 4px 8px black;
+             }
+         }
+         .totalStyle{
+            padding: 2rem;
+         }
+            
+     }
 }
+

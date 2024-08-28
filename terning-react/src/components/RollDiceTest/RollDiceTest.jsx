@@ -60,7 +60,7 @@ const RollDiceTest = () => {
             <button onClick={higherBtn} style={{ padding: '10px 20px', fontSize: '16px', marginLeft: '10px', color: 'white', background: 'green', borderRadius: '10px', cursor: 'pointer', border: 'none'}}>
                 Higher
             </button>
-            <h2>Total: {total}</h2>
+            <h2 className={s.totalStyle}>Total: {total}</h2>
             <h2>{message}</h2> 
         </div>
     );

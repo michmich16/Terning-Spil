@@ -4,17 +4,6 @@ import s from './Button.module.scss'
 
 export const Button = () =>{
 
-    
-   function lowerBtn(){
-        console.log('player clicked lower')
-        
-    }
-
-    function equalBtn(){
-        console.log('player clicked equal')
-        
-    }
-
  
 
 
