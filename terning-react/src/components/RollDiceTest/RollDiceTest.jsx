@@ -26,7 +26,7 @@ const RollDiceTest = () => {
         rollDice();
         console.log('higher clicked');
 
-        if (dice1 + dice2 > 6) {
+        if (dice1 + dice2 < 6) {
             setMessage('You win! The total is higher than 6.');
         } else {
             setMessage('You lose! The total is not higher than 6.');
@@ -37,7 +37,7 @@ const RollDiceTest = () => {
         rollDice();
         console.log('lower clicked');
 
-        if (dice1 + dice2 < 6) {
+        if (dice1 + dice2 > 6) {
             setMessage('You win! The total is lower than 6.');
         } else {
             setMessage('You lose! The total is not lower than 6.');
