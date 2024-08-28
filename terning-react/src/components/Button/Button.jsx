@@ -1,9 +1,14 @@
 import s from './Button.module.scss'
+import RollDiceTest from '../RollDiceTest/RollDiceTest'
+
+function higher(){
+  
+}
 
 export const Button = (props) =>{
     return (
         <div className={s.buttonStyle}>
-            <button className={s.button}>{props.buttonText}</button>
+            <button onClick={higher}className={s.button}>{props.buttonText}</button>
         </div>
     )
 }

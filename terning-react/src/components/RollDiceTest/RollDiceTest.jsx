@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import Dice from '../../components/Dice/Dice';
+import Dice from '../Dice/Dice'
+
 
 const RollDiceTest = () => {
     const [dice1, setDice1] = useState(1);
     const [dice2, setDice2] = useState(1);
     const [total, setTotal] = useState(2);
+    const [message, setMessage] =useState('');
+
+    const checkHigh= () =>{
+        if (setTotal > 6) {
+            setMessage('You have the highest score!');
+        } else {
+            setMessage('Your score is...');
+        }
+    };
+     
+    
 
     const rollDice = () => {
         const newDice1 = Math.floor(Math.random() * 6) + 1;
@@ -16,7 +28,12 @@ const RollDiceTest = () => {
     // useEffect to update the total whenever dice1 or dice2 changes
     useEffect(() => {
         setTotal(dice1 + dice2);
+        setMessage('');
     }, [dice1, dice2]);
+
+
+  
+    
 
     return (
         <div style={{ textAlign: 'center' }}>
@@ -28,7 +45,11 @@ const RollDiceTest = () => {
             <button onClick={rollDice} style={{ padding: '10px 20px', fontSize: '16px' }}>
                 Roll Dice
             </button>
+            <button onClick={checkHigh} style={{ padding: '10px 20px', fontSize: '16px' }}>
+                Check High Score
+            </button>
             <h2>Total: {total}</h2>
+            {message && <h3>{message}</h3>}
         </div>
     );
 };
