@@ -8,15 +8,10 @@ function App() {
 
   return (
     <>
-    <div className="App">
-      <Game />
-    </div>
-
-      <div className='buttonGrid'>
-        <Button buttonText='Lower' />
-        <Button buttonText='Six' />
-        <Button buttonText='Higher' />
+      <div className="App">
+        <Game />
       </div>
+      <Button />
     </>
   )
 }
