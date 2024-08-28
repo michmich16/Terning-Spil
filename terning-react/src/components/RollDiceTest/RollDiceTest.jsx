@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Dice from '../../components/Dice/Dice';
+import s from './RollDiceTest.module.scss'
 
 const RollDiceTest = () => {
     const [dice1, setDice1] = useState(1);
@@ -44,19 +45,19 @@ const RollDiceTest = () => {
     };
 
     return (
-        <div style={{ textAlign: 'center' }}>
+        <div className={s.Container} style={{ textAlign: 'center' }}>
             <h1>React Dice Game</h1>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
                 <Dice number={dice1} />
                 <Dice number={dice2} />
             </div>
-            <button onClick={lowerBtn} style={{ padding: '10px 20px', fontSize: '16px', marginRight: '10px' }}>
+            <button onClick={lowerBtn} style={{ padding: '10px 20px', fontSize: '16px', marginRight: '10px', color: 'white', background: 'red', borderRadius: '10px', cursor: 'pointer', border: 'none' }}>
                 Lower
             </button>
-            <button onClick={() => setTotal(rollDice())} style={{ padding: '10px 20px', fontSize: '16px' }}>
+            <button onClick={() => setTotal(rollDice())} style={{ padding: '10px 20px', fontSize: '16px' , color: 'white', background: 'black', borderRadius: '10px', cursor: 'pointer', border: 'none' }}>
                 Roll Dice
             </button>
-            <button onClick={higherBtn} style={{ padding: '10px 20px', fontSize: '16px', marginLeft: '10px' }}>
+            <button onClick={higherBtn} style={{ padding: '10px 20px', fontSize: '16px', marginLeft: '10px', color: 'white', background: 'green', borderRadius: '10px', cursor: 'pointer', border: 'none'}}>
                 Higher
             </button>
             <h2>Total: {total}</h2>
