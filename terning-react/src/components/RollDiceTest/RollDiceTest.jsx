@@ -12,6 +12,12 @@ const RollDiceTest = () => {
         const newDice2 = Math.floor(Math.random() * 6) + 1;
         setDice1(newDice1);
         setDice2(newDice2);
+
+        if (newDice1==6 && newDice2==6) {
+            setMessage('You win! You got two 6s!');
+        } else {
+            setMessage('Roll again!');
+        }
     };
 
     // useEffect to update the total whenever dice1 or dice2 changes
