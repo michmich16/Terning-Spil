@@ -45,7 +45,7 @@ const RollDiceTest = () => {
     };
 
     return (
-        <div className={s.Container} style={{ textAlign: 'center' }}>
+        <div className={s.Container} >
             <h1>React Dice Game</h1>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
                 <Dice number={dice1} />
