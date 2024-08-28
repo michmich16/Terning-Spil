@@ -67,3 +67,5 @@ const RollDiceTest = () => {
 };
 
 export default RollDiceTest;
+
+// Need to add coin shower when you win the game and losing poop shower effect too. Need to add the sound effects for rolling dice, getting 12 (highscore), winner sound and losing sound
