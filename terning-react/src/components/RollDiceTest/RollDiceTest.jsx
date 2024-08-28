@@ -5,7 +5,7 @@ import s from './RollDiceTest.module.scss'
 const RollDiceTest = () => {
     const [dice1, setDice1] = useState(1);
     const [dice2, setDice2] = useState(1);
-    const [total, setTotal] = useState(2);  // Set til 2 total (mindste tal man kan få)
+    const [total, setTotal] = useState(2);  
     const [message, setMessage] = useState('');
 
     const rollDice = () => {
@@ -27,7 +27,7 @@ const RollDiceTest = () => {
         } else {
             setMessage(`You lose! The total ${newTotal} is not higher than the previous total ${total}.`);
         }
-        setTotal(newTotal);  // Opdaterer total til nye value
+        setTotal(newTotal);  
     };
 
     const lowerBtn = () => {
