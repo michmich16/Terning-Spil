@@ -1,7 +1,10 @@
 .Container {
+   background: grey;
+ 
     button {
         &:hover {
            opacity: 50%;
         }
     }
+       
 }
