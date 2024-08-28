@@ -10,7 +10,7 @@ const diceImages = [dice1, dice2, dice3, dice4, dice5, dice6];
 
 const Dice = ({number}) =>{
     return (
-        <img src={diceImages[number -1]} alt={`Dice${number}`} />
+        <img className={s.dice_shaking} src={diceImages[number -1]} alt={`Dice${number}`} />
     );
 };
 
