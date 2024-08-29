@@ -16,7 +16,16 @@ const RollDiceTest = () => {
         setDice2(newDice2);
         setShake(true);
         setTimeout(() => setShake(false), 1000);
+
+          // Check if the total is 12
+          if (newDice1+newDice2 === 12) {
+            setMessage('You won! You rolled a total of 12!');
+        } else {
+            setMessage('Roll again!');
+        }
         return newDice1 + newDice2;  
+
+        
     };
 
     const higherBtn = () => {
@@ -49,6 +58,7 @@ const RollDiceTest = () => {
         setTotal(newTotal);  // Opdaterer total til nye value
         setShake(true);
     };
+
 
     return (
         <div className={s.Container}>
