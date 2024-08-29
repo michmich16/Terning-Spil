@@ -23,13 +23,20 @@ const RollDiceTest = () => {
     const winnerAudio = new Audio(winnerSound);
 
     const rollDice = () => {
-        rollDiceAudio.play();  //Spiller diceRoll lyd her.
+        rollDiceAudio.play();  // Play dice roll sound
         const newDice1 = Math.floor(Math.random() * 6) + 1;
         const newDice2 = Math.floor(Math.random() * 6) + 1;
+        const newTotal = newDice1 + newDice2; // Calculate the new total
         setDice1(newDice1);
         setDice2(newDice2);
-        return newDice1 + newDice2;  
+    
+        if (newTotal === 12) {
+            highscoreAudio.play();  
+        }
+    
+        return newTotal;  
     };
+    
 
     const playAnimation = (type) => {
         setAnimation(type);
