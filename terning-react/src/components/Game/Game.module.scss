@@ -1,12 +1,12 @@
     .Container {
         background: rgba(128, 128, 128, 0.588);
-        max-width: 30vw;
+        max-width: 30rem;
         margin: auto;
         margin-top: 5rem;
         border-radius: 8px;
         padding: 1rem;
         text-align: center;
-        min-height: 40vh;
+        min-height: 40rem;
          button {
              &:hover {
                 box-shadow: 2px 4px 8px black;
@@ -60,3 +60,4 @@
 .loseMessage{
     color: red;
 }
+
