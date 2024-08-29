@@ -23,10 +23,10 @@ const RollDiceTest = () => {
     const winnerAudio = new Audio(winnerSound);
 
     const rollDice = () => {
-        rollDiceAudio.play();  // Play dice roll sound
+        rollDiceAudio.play();  // Spil roll dice lyd.
         const newDice1 = Math.floor(Math.random() * 6) + 1;
         const newDice2 = Math.floor(Math.random() * 6) + 1;
-        const newTotal = newDice1 + newDice2; // Calculate the new total
+        const newTotal = newDice1 + newDice2;
         setDice1(newDice1);
         setDice2(newDice2);
     
