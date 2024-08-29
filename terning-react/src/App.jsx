@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import React from 'react';
 import Game from './components/Game/Game';
-import { Button } from './components/Button/Button';
+import  Button  from './components/Buttons/Buttons';
 import './App.scss'
 
 function App() {
@@ -11,7 +11,6 @@ function App() {
       <div className="App">
         <Game />
       </div>
-      <Button />
     </>
   )
 }
