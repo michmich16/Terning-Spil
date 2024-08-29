@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Dice from '../Dice/Dice';
-import Buttons from '../Buttons/Buttons'; // Import the new Buttons component
+import Buttons from '../Buttons/Buttons';
 import s from './Game.module.scss';
-import coinImage from '/src/assets/images/coins.png';
-import poopImage from '/src/assets/images/poop.png';
+// import coinImage from '/src/assets/images/coins.png';
+// import poopImage from '/src/assets/images/poop.png';
 import loseSound from '/src/assets/audio/lose.mp3';
 import diceRollSound from '/src/assets/audio/diceRoll.mp3';
-import highscoreSound from '/src/assets/audio/highscore.mp3';
+// import highscoreSound from '/src/assets/audio/highscore.mp3';
 import winnerSound from '/src/assets/audio/winner.mp3';
 
 const Game = () => {
@@ -19,7 +19,7 @@ const Game = () => {
 
     const rollDiceAudio = new Audio(diceRollSound);
     const loseAudio = new Audio(loseSound);
-    const highscoreAudio = new Audio(highscoreSound);
+    // const highscoreAudio = new Audio(highscoreSound);
     const winnerAudio = new Audio(winnerSound);
 
     const rollDice = () => {
@@ -32,9 +32,13 @@ const Game = () => {
         setTimeout(() => setShake(false), 1000);
 
         if (newDice1 + newDice2 === 12) {
-            setMessage('You won! You rolled a total of 12!');
+            setMessage('You won the bonus! You rolled a 12!');
+            playAnimation('win');
+            winnerAudio.play();
         } else {
-            setMessage('Roll again!');
+            setMessage("You lost! Shouldn't have taken the risk!");
+            playAnimation('lose');
+            loseAudio.play();
         }
         return newDice1 + newDice2;
     };
