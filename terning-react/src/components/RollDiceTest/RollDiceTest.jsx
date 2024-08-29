@@ -33,7 +33,7 @@ const RollDiceTest = () => {
 
     const playAnimation = (type) => {
         setAnimation(type);
-        setTimeout(() => setAnimation(null), 4000); //Fjerner animation efter 4000 ms = 4 sec
+        setTimeout(() => setAnimation(null), 60000); //Fjerner animation efter 60000ms = 60 sec
     };
 
     const higherBtn = () => {
@@ -96,7 +96,10 @@ const RollDiceTest = () => {
             <button onClick={higherBtn} style={{ padding: '10px 20px', fontSize: '16px', marginLeft: '10px', color: 'white', background: 'green', borderRadius: '10px', cursor: 'pointer', border: 'none'}}>
                 Higher
             </button>
-            <h2 className={s.totalStyle}>Total: {total}</h2>
+            <h2 className={s.totalStyle} style={{ color: total === 12 ? 'gold' : 'black' }}>
+             Total: {total}
+</h2>
+
             <h2>{message}</h2>
 
             {/* Render animation effects */}
