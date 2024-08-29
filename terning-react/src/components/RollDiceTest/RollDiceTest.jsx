@@ -21,11 +21,11 @@ const RollDiceTest = () => {
         console.log('higher clicked', newTotal);
 
         if (newTotal > total) {
-            setMessage(`You win! The total ${newTotal} is higher than the previous total ${total}.`);
+            setMessage(`You won! The total ${newTotal} is higher than the previous total ${total}.`);
         } else if (newTotal === total) {
             setMessage('It\'s a tie! The total is the same as the previous roll.');
         } else {
-            setMessage(`You lose! The total ${newTotal} is not higher than the previous total ${total}.`);
+            setMessage(`You lost! The total ${newTotal} is not higher than the previous total ${total}.`);
         }
         setTotal(newTotal);  
     };
