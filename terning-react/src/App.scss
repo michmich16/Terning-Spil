@@ -1,12 +1,12 @@
-*{
+html {
     padding: 0;
     margin: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.buttonGrid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: auto;
+    background-image: url('./assets/images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%;
+    background-position: center center;
+    background-attachment: fixed;
 
 }
