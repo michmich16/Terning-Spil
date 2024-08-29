@@ -34,8 +34,7 @@ const RollDiceTest = () => {
 
         if (newTotal > total) {
             setMessage(`You won! The total ${newTotal} is higher than the previous total ${total}.`);
-        } else if (newTotal === total) {
-            setMessage('It\'s a tie! The total is the same as the previous roll.');
+    
         } else {
             setMessage(`You lost! The total ${newTotal} is not higher than the previous total ${total}.`);
         }
@@ -49,11 +48,10 @@ const RollDiceTest = () => {
         console.log('lower clicked', newTotal);
 
         if (newTotal < total) {
-            setMessage(`You win! The total ${newTotal} is lower than the previous total ${total}.`);
-        } else if (newTotal === total) {
-            setMessage('It\'s a tie! The total is the same as the previous roll.');
+            setMessage(`You won! The total ${newTotal} is lower than the previous total ${total}.`);
+    
         } else {
-            setMessage(`You lose! The total ${newTotal} is not lower than the previous total ${total}.`);
+            setMessage(`You lost! The total ${newTotal} is not lower than the previous total ${total}.`);
         }
         setTotal(newTotal);  // Opdaterer total til nye value
         setShake(true);
@@ -77,7 +75,13 @@ const RollDiceTest = () => {
                 Higher
             </button>
             <h2 className={s.totalStyle}>Total: {total}</h2>
-            <h2>{message}</h2> 
+            <h2 className={s.messageStyle}>
+                {message.includes('You won') ? (
+                    <span className={s.winMessage}>{message}</span>
+                ) : (
+                    <span className={s.loseMessage}>{message}</span>
+                )}
+            </h2> 
         </div>
     );
 };
