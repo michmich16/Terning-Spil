@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import React from 'react';
-import Game from './components/RollDiceTest/RollDiceTest';
+import Game from './components/Game/Game';
 import { Button } from './components/Button/Button';
 import './App.scss'
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import RollDiceTest from '../RollDiceTest/RollDiceTest';
+import Game from '../Game/Game';
 import s from './Button.module.scss'
 
 export const Button = () =>{
