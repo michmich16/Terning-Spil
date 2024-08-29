@@ -7,12 +7,15 @@ const RollDiceTest = () => {
     const [dice2, setDice2] = useState(1);
     const [total, setTotal] = useState(2);  
     const [message, setMessage] = useState('');
+    const [shake, setShake] =useState(false);
 
     const rollDice = () => {
         const newDice1 = Math.floor(Math.random() * 6) + 1;
         const newDice2 = Math.floor(Math.random() * 6) + 1;
         setDice1(newDice1);
         setDice2(newDice2);
+        setShake(true);
+        setTimeout(() => setShake(false), 1000);
         return newDice1 + newDice2;  
     };
 
@@ -28,6 +31,8 @@ const RollDiceTest = () => {
             setMessage(`You lost! The total ${newTotal} is not higher than the previous total ${total}.`);
         }
         setTotal(newTotal);  
+        setShake(true);
+        setTimeout(() => setShake(false), 1000);
     };
 
     const lowerBtn = () => {
@@ -42,14 +47,15 @@ const RollDiceTest = () => {
             setMessage(`You lose! The total ${newTotal} is not lower than the previous total ${total}.`);
         }
         setTotal(newTotal);  // Opdaterer total til nye value
+        setShake(true);
     };
 
     return (
         <div className={s.Container}>
             <h1>React Dice Game</h1>
             <div className={s.diceContainer} >
-                <Dice number={dice1} />
-                <Dice number={dice2} />
+                <Dice number={dice1} shake={shake}/>
+                <Dice number={dice2} shake={shake}/>
             </div>
             <button className={s.lowerButtonStyle} onClick={lowerBtn} >
                 Lower
