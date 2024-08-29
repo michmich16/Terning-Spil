@@ -1,12 +1,16 @@
     .Container {
         background: rgba(128, 128, 128, 0.588);
-        max-width: 30rem;
+        min-width: 65rem;
         margin: auto;
-        margin-top: 5rem;
+        // margin-top: 5rem;
         border-radius: 8px;
         padding: 1rem;
         text-align: center;
-        min-height: 40rem;
+        max-height: 40rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
          button {
              &:hover {
                 box-shadow: 2px 4px 8px black;
@@ -15,6 +19,14 @@
          .totalStyle{
             padding: 2rem;
          }
+
+         @media only screen and (max-width: 1100px) {
+            min-width: 30rem;
+        }
+    
+        @media only screen and (max-width: 600px) {
+            min-width: 10rem;
+        }
             
      }
 
@@ -54,10 +66,15 @@
     border: none;
 }
 
-.winMessage{
-    color: green;
+.messageStyle{
+    min-height: 7rem;
+    .winMessage{
+        color: green;
+    }
+    .loseMessage{
+        color: red;
+    }
 }
-.loseMessage{
-    color: red;
-}
+
+
 
