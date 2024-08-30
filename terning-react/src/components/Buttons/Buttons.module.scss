@@ -18,6 +18,7 @@
 
     button {
         border: none;
+        
         &:hover {
             box-shadow: 2px 4px 8px rgb(0, 0, 0);
         }
@@ -27,12 +28,27 @@
 .lowerButtonStyle,
 .rollButtonStyle,
 .higherButtonStyle {
+    margin-top: 0.5rem;
+    width: 10rem;
     padding: 10px 20px;
     font-size: 20px;
-    margin: auto;
     font-weight: 400;
     cursor: pointer;
     border-radius: 8px;
+    @media only screen and (max-width: 1100px) {
+        width: 8rem;
+    }
+
+    @media only screen and (max-width: 600px) {
+        margin-top: 0.5rem;
+        padding: 10px 20px;
+        font-size: 20px;
+        font-weight: 400;
+        cursor: pointer;
+        border-radius: 8px;
+        width: auto;
+    }
+
 }
 
 .lowerButtonStyle {
