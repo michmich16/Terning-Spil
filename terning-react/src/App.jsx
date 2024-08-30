@@ -7,10 +7,9 @@ function App() {
 
   return (
     <>
-      <div className="App">
+
         <Game />
         
-      </div>
     </>
   )
 }
