@@ -21,7 +21,6 @@ const Game = () => {
     // roll the dice function
 
     const rollDice = () => {
-        rollDiceAudio.play(); 
         setShake(true);
         const newDice1 = Math.floor(Math.random() * 6) + 1;  //pick random 1-6 dice face
         const newDice2 = Math.floor(Math.random() * 6) + 1;
@@ -29,15 +28,6 @@ const Game = () => {
         setDice2(newDice2);
         setTimeout(() => setShake(false), 1000);
 
-        if (newDice1 + newDice2 === 12) {
-            setMessage('You won the bonus! You rolled a 12!');
-            playAnimation('win');
-            winnerAudio.play();
-        } else {
-            setMessage("You lost! Shouldn't have taken the risk!");
-            playAnimation('lose');
-            loseAudio.play();
-        }
         return newDice1 + newDice2;
     };
 
@@ -49,6 +39,7 @@ const Game = () => {
     // higher button
 
     const higherBtn = () => {
+        rollDiceAudio.play();
         const newTotal = rollDice();
         console.log('higher clicked', newTotal);
 
@@ -56,6 +47,7 @@ const Game = () => {
             setMessage(`You won! The total ${newTotal} is higher than the previous total ${total}.`);
             playAnimation('win');
             winnerAudio.play();
+            console.log('you won with high')
         } else if (newTotal === total) {
             setMessage(`Lucky you! ${total} is equal to ${newTotal}`);
             playAnimation('win');
@@ -70,9 +62,28 @@ const Game = () => {
         setTimeout(() => setShake(false), 1000);
     };
 
+    const middleBtn = () => {
+        const newTotal = rollDice();
+        if (newTotal === 12) {
+            setMessage('You won the bonus! You rolled a 12!');
+            playAnimation('win');
+            winnerAudio.play();
+        } else {
+            setMessage("You lost! Shouldn't have taken the risk!");
+            playAnimation('lose');
+             loseAudio.play();
+        }
+        setTotal(newTotal);
+        setShake(true);
+        setTimeout(() => setShake(false), 1000);
+    };
+
+  
+
 // lower button
 
     const lowerBtn = () => {
+        rollDiceAudio.play();
         const newTotal = rollDice();
         console.log('lower clicked', newTotal);
 
@@ -80,6 +91,7 @@ const Game = () => {
             setMessage(`You won! The total ${newTotal} is lower than the previous total ${total}.`);
             playAnimation('win');
             winnerAudio.play();
+            console.log('you won with low')
         } else if (newTotal === total) {
             setMessage(`Lucky you! ${total} is equal to ${newTotal}`);
             playAnimation('win');
@@ -110,7 +122,7 @@ const Game = () => {
             </h2>
             <Buttons 
                 onLower={lowerBtn} 
-                onRoll={() => setTotal(rollDice())} 
+                onRoll={middleBtn}
                 onHigher={higherBtn} 
             />
         </div>
