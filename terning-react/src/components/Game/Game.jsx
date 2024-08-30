@@ -22,10 +22,12 @@ const Game = () => {
     // const highscoreAudio = new Audio(highscoreSound);
     const winnerAudio = new Audio(winnerSound);
 
+    // roll the dice function
+
     const rollDice = () => {
         rollDiceAudio.play(); 
         setShake(true);
-        const newDice1 = Math.floor(Math.random() * 6) + 1;
+        const newDice1 = Math.floor(Math.random() * 6) + 1;  //pick random 1-6 dice face
         const newDice2 = Math.floor(Math.random() * 6) + 1;
         setDice1(newDice1);
         setDice2(newDice2);
@@ -48,6 +50,8 @@ const Game = () => {
         setTimeout(() => setAnimation(null), 60000);
     };
 
+    // higher button
+
     const higherBtn = () => {
         const newTotal = rollDice();
         console.log('higher clicked', newTotal);
@@ -69,6 +73,8 @@ const Game = () => {
         setShake(true);
         setTimeout(() => setShake(false), 1000);
     };
+
+// lower button
 
     const lowerBtn = () => {
         const newTotal = rollDice();
