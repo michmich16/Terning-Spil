@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Mirza:wght@400;500;600;700&display=swap');
+
+
 .buttonsContainer {
     display: flex;
     justify-content: space-around;
@@ -12,23 +15,37 @@
         flex-direction: column-reverse;
         justify-content: baseline;
     }
+
+    button {
+        border: none;
+        &:hover {
+            box-shadow: 2px 4px 8px rgb(0, 0, 0);
+        }
+    }
 }
 
-.lowerButtonStyle, .rollButtonStyle, .higherButtonStyle {
+.lowerButtonStyle,
+.rollButtonStyle,
+.higherButtonStyle {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 20px;
+    margin: auto;
+    font-weight: 400;
     cursor: pointer;
     border-radius: 8px;
 }
 
 .lowerButtonStyle {
-    background-color: #f44336; /* Red */
+    background-color: #f44336;
+    /* Red */
 }
 
 .rollButtonStyle {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
+    /* Green */
 }
 
 .higherButtonStyle {
-    background-color: #2196F3; /* Blue */
+    background-color: #2196F3;
+    /* Blue */
 }
