@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import Dice from '../Dice/Dice';
 import Buttons from '../Buttons/Buttons';
 import s from './Game.module.scss';
-// import coinImage from '/src/assets/images/coins.png';
-// import poopImage from '/src/assets/images/poop.png';
 import loseSound from '/src/assets/audio/lose.mp3';
 import diceRollSound from '/src/assets/audio/diceRoll.mp3';
-// import highscoreSound from '/src/assets/audio/highscore.mp3';
 import winnerSound from '/src/assets/audio/winner.mp3';
 
 const Game = () => {
@@ -14,16 +11,14 @@ const Game = () => {
     const [dice2, setDice2] = useState(1);
     const [total, setTotal] = useState(2);
     const [message, setMessage] = useState('');
-    const [animation, setAnimation] = useState(null);  
+    const [animation, setAnimation] = useState(null);
     const [shake, setShake] = useState(false);
 
     const rollDiceAudio = new Audio(diceRollSound);
     const loseAudio = new Audio(loseSound);
-    // const highscoreAudio = new Audio(highscoreSound);
     const winnerAudio = new Audio(winnerSound);
 
     const rollDice = () => {
-        rollDiceAudio.play(); 
         setShake(true);
         const newDice1 = Math.floor(Math.random() * 6) + 1;
         const newDice2 = Math.floor(Math.random() * 6) + 1;
@@ -31,16 +26,24 @@ const Game = () => {
         setDice2(newDice2);
         setTimeout(() => setShake(false), 1000);
 
-        if (newDice1 + newDice2 === 12) {
+
+        return newDice1 + newDice2;
+    };
+
+    const middleBtn = () => {
+        const newTotal = rollDice();
+        if (newTotal === 12) {
             setMessage('You won the bonus! You rolled a 12!');
             playAnimation('win');
             winnerAudio.play();
         } else {
             setMessage("You lost! Shouldn't have taken the risk!");
             playAnimation('lose');
-            loseAudio.play();
+             loseAudio.play();
         }
-        return newDice1 + newDice2;
+        setTotal(newTotal);
+        setShake(true);
+        setTimeout(() => setShake(false), 1000);
     };
 
     const playAnimation = (type) => {
@@ -49,6 +52,7 @@ const Game = () => {
     };
 
     const higherBtn = () => {
+        rollDiceAudio.play();
         const newTotal = rollDice();
         console.log('higher clicked', newTotal);
 
@@ -56,6 +60,7 @@ const Game = () => {
             setMessage(`You won! The total ${newTotal} is higher than the previous total ${total}.`);
             playAnimation('win');
             winnerAudio.play();
+            console.log('you won with high')
         } else if (newTotal === total) {
             setMessage(`Lucky you! ${total} is equal to ${newTotal}`);
             playAnimation('win');
@@ -63,6 +68,7 @@ const Game = () => {
         } else {
             setMessage(`You lost! The total ${newTotal} is not higher than the previous total ${total}.`);
             playAnimation('lose');
+            console.log('you lose with high');
             loseAudio.play();
         }
         setTotal(newTotal);
@@ -71,6 +77,7 @@ const Game = () => {
     };
 
     const lowerBtn = () => {
+        rollDiceAudio.play();
         const newTotal = rollDice();
         console.log('lower clicked', newTotal);
 
@@ -78,6 +85,7 @@ const Game = () => {
             setMessage(`You won! The total ${newTotal} is lower than the previous total ${total}.`);
             playAnimation('win');
             winnerAudio.play();
+            console.log('you won with low')
         } else if (newTotal === total) {
             setMessage(`Lucky you! ${total} is equal to ${newTotal}`);
             playAnimation('win');
@@ -85,6 +93,7 @@ const Game = () => {
         } else {
             setMessage(`You lost! The total ${newTotal} is not lower than the previous total ${total}.`);
             playAnimation('lose');
+            console.log('you lose with low');
             loseAudio.play();
         }
         setTotal(newTotal);
@@ -102,14 +111,14 @@ const Game = () => {
             <h2 className={s.messageStyle}>
                 {message.includes('You won') || message.includes('Lucky you') ? (
                     <span className={s.winMessage}>{message}</span>
-                    ) : (
-                        <span className={s.loseMessage}>{message}</span>
-                        )}
+                ) : (
+                    <span className={s.loseMessage}>{message}</span>
+                )}
             </h2>
-            <Buttons 
-                onLower={lowerBtn} 
-                onRoll={() => setTotal(rollDice())} 
-                onHigher={higherBtn} 
+            <Buttons
+                onLower={lowerBtn}
+                onRoll={middleBtn}
+                onHigher={higherBtn}
             />
         </div>
     );
