@@ -79,7 +79,7 @@ const Game = () => {
     return (
         <div className={s.Container}>
             {showConfetti && <Confetti width={width} height={height} />}
-            <h1>Dice Game</h1>
+            <h1>The Mummy Game</h1>
             <div className={s.diceContainer}>
                 <Dice number={dice1} shake={shake} />
                 <Dice number={dice2} shake={shake} />
