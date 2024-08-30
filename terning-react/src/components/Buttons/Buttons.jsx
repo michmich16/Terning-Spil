@@ -8,7 +8,7 @@ const Buttons = ({ onLower, onRoll, onHigher }) => {
                 Lower
             </button>
             <button className={s.rollButtonStyle} onClick={onRoll} >
-                Roll Dice
+                Boxcars
             </button>
             <button className={s.higherButtonStyle} onClick={onHigher} >
                 Higher
