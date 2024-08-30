@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import Dice from '../Dice/Dice';
 import Buttons from '../Buttons/Buttons';
 import s from './Game.module.scss';
-// import coinImage from '/src/assets/images/coins.png';
-// import poopImage from '/src/assets/images/poop.png';
 import loseSound from '/src/assets/audio/lose.mp3';
 import diceRollSound from '/src/assets/audio/diceRoll.mp3';
-// import highscoreSound from '/src/assets/audio/highscore.mp3';
 import winnerSound from '/src/assets/audio/winner.mp3';
 
 const Game = () => {
@@ -19,7 +16,6 @@ const Game = () => {
 
     const rollDiceAudio = new Audio(diceRollSound);
     const loseAudio = new Audio(loseSound);
-    // const highscoreAudio = new Audio(highscoreSound);
     const winnerAudio = new Audio(winnerSound);
 
     // roll the dice function
