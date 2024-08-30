@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Dice from '../Dice/Dice';
 import Buttons from '../Buttons/Buttons';
+import Confetti from 'react-confetti';
+import useWindowSize from 'react-use/lib/useWindowSize';
 import s from './Game.module.scss';
 import loseSound from '/src/assets/audio/lose.mp3';
 import diceRollSound from '/src/assets/audio/diceRoll.mp3';
@@ -13,12 +15,12 @@ const Game = () => {
     const [message, setMessage] = useState('');
     const [animation, setAnimation] = useState(null);  
     const [shake, setShake] = useState(false);
+    const [showConfetti, setShowConfetti] = useState(false);
 
+    const { width, height } = useWindowSize();
     const rollDiceAudio = new Audio(diceRollSound);
     const loseAudio = new Audio(loseSound);
     const winnerAudio = new Audio(winnerSound);
-
-    // roll the dice function
 
     const rollDice = () => {
         setShake(true);
@@ -36,8 +38,6 @@ const Game = () => {
         setTimeout(() => setAnimation(null), 60000);
     };
 
-    // higher button
-
     const higherBtn = () => {
         rollDiceAudio.play();
         const newTotal = rollDice();
@@ -47,15 +47,18 @@ const Game = () => {
             setMessage(`You won! The total ${newTotal} is higher than the previous total ${total}.`);
             playAnimation('win');
             winnerAudio.play();
+            setShowConfetti(true);
             console.log('you won with high')
         } else if (newTotal === total) {
             setMessage(`Lucky you! ${total} is equal to ${newTotal}`);
             playAnimation('win');
             winnerAudio.play();
+            setShowConfetti(true);
         } else {
             setMessage(`You lost! The total ${newTotal} is not higher than the previous total ${total}.`);
             playAnimation('lose');
             loseAudio.play();
+            setShowConfetti(false);
         }
         setTotal(newTotal);
         setShake(true);
@@ -67,20 +70,18 @@ const Game = () => {
         if (newTotal === 12) {
             setMessage('You won the bonus! You rolled a 12!');
             playAnimation('win');
+            setShowConfetti(true);  // Show confetti on win
             winnerAudio.play();
         } else {
             setMessage("You lost! Shouldn't have taken the risk!");
             playAnimation('lose');
-             loseAudio.play();
+            loseAudio.play();
+            setShowConfetti(false);  // Hide confetti on loss
         }
         setTotal(newTotal);
         setShake(true);
         setTimeout(() => setShake(false), 1000);
     };
-
-  
-
-// lower button
 
     const lowerBtn = () => {
         rollDiceAudio.play();
@@ -91,15 +92,18 @@ const Game = () => {
             setMessage(`You won! The total ${newTotal} is lower than the previous total ${total}.`);
             playAnimation('win');
             winnerAudio.play();
+            setShowConfetti(true);
             console.log('you won with low')
         } else if (newTotal === total) {
             setMessage(`Lucky you! ${total} is equal to ${newTotal}`);
             playAnimation('win');
             winnerAudio.play();
+            setShowConfetti(true);
         } else {
             setMessage(`You lost! The total ${newTotal} is not lower than the previous total ${total}.`);
             playAnimation('lose');
             loseAudio.play();
+            setShowConfetti(false);
         }
         setTotal(newTotal);
         setShake(true);
@@ -107,6 +111,7 @@ const Game = () => {
 
     return (
         <div className={s.Container}>
+            {showConfetti && <Confetti width={width} height={height} />}
             <h1>Dice Game</h1>
             <div className={s.diceContainer}>
                 <Dice number={dice1} shake={shake} />
