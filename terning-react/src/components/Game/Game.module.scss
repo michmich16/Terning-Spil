@@ -1,0 +1,80 @@
+    .Container {
+        background: rgba(128, 128, 128, 0.588);
+        min-width: 65rem;
+        margin: auto;
+        // margin-top: 5rem;
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+        max-height: 40rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+         button {
+             &:hover {
+                box-shadow: 2px 4px 8px black;
+             }
+         }
+         .totalStyle{
+            padding: 2rem;
+         }
+
+         @media only screen and (max-width: 1100px) {
+            min-width: 30rem;
+        }
+    
+        @media only screen and (max-width: 600px) {
+            min-width: 10rem;
+        }
+            
+     }
+
+.diceContainer{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.higherButtonStyle{
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: 10px; 
+    color: white;
+    background: green; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    border: none;
+}
+
+.rollButtonStyle{
+    padding: 10px 20px;
+    font-size: 16px; 
+    color: white;
+    background: black; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    border: none;
+} 
+.lowerButtonStyle{
+    padding: 10px 20px;
+    font-size: 16px; 
+    margin-right: 10px ;
+    color: white;
+    background: red; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    border: none;
+}
+
+.messageStyle{
+    min-height: 7rem;
+    .winMessage{
+        color: green;
+    }
+    .loseMessage{
+        color: red;
+    }
+}
+
+
+
